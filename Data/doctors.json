@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Ernazarov Sirojjiddin Zievuddinovich",
+    "specialty": "Cardiologist",
+    "experience": "10 years",
+    "category": "Doctor of the highest category",
+    "clinic": "Expert Medical Clinic - Pro Surgery",
+    "location": "Yunusabad district, Tashkent, Small ring road, 112A",
+    "landmark": "EVOS Sofia",
+    "workingHours": "Mon - Sat 10:00-17:00",
+    "initialConsultation": "price on request",
+    "followUpConsultation": "price on request",
+    "phone": "+998901234567",
+    "image": "./img/Doctor.jpeg",
+    "rating": 4.5
+  },
+  {
+    "id": 2,
+    "name": "Tursunova Dilafruz Abduganiyevna",
+    "specialty": "Dermatologist",
+    "experience": "7 years",
+    "category": "First category",
+    "clinic": "City Polyclinic No. 5",
+    "location": "Chilonzor district, Tashkent, Katta Kani street, 47",
+    "landmark": "Near Chilonzor Metro",
+    "workingHours": "Mon - Fri 09:00-16:00",
+    "initialConsultation": "120,000 UZS",
+    "followUpConsultation": "100,000 UZS",
+    "phone": "+998901234568",
+    "image": "./img/Doctor.jpeg",
+    "rating": 4.2
+  }
+]
