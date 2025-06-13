@@ -27,7 +27,7 @@ function SpecialistsCarousel() {
     <Container>
       <div className="my-20">
         <h1 className="font-bold text-[35px] mb-[20px] border-b-2 border-blue-300 p-2 w-fit">
-          Services
+          Specialists
         </h1>
         <div className="relative">
           <button

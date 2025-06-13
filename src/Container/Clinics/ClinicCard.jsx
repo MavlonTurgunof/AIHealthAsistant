@@ -11,7 +11,7 @@ function ClinicCard({ data }) {
         <img
           src={`${data.image}`}
           alt="doctor"
-          className="h-30 w-25 border-[1px] border-blue-500 object-cover"
+          className="h-30 w-30  object-contain"
         />
         <div className="flex gap-2 items-center mt-4">
           <h1 className=" font-semibold text-[14px] text-green-500">

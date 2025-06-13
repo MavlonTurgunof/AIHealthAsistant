@@ -52,7 +52,7 @@ function AIAssistant() {
                 <h3 className="font-semibold">Doctors:</h3>
                 <ul className="list-disc ml-5">
                   {result.matchedDoctors.map((data) => (
-                    <div className="bg-white border-[1px] border-blue-500 flex flex-row justify-start gap-10 mb-4 p-3 rounded-[10px]">
+                    <div className="bg-white border-[1px] border-blue-500 flex flex-row justify-start gap-10 mb-4 p-3 rounded-[10px] my-10">
                       <div className="w-fit relative">
                         <div className="absolute  border-1 border-blue-500 bg-white p-2 rounded-full top-[-10px] right-[-10px]">
                           <BiHeart color="red" className="h-6 w-6" />
@@ -154,7 +154,7 @@ function AIAssistant() {
                         <img
                           src={`${data.image}`}
                           alt="doctor"
-                          className="h-30 w-25 border-[1px] border-blue-500 object-cover"
+                          className="h-30 w-30  object-fit"
                         />
                         <div className="flex gap-2 items-center mt-4">
                           <h1 className=" font-semibold text-[14px] text-green-500">

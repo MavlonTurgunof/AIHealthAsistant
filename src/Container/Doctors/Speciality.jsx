@@ -18,7 +18,8 @@ function Speciality() {
   return (
     <Container>
       <div>
-        <div className="flex justify-center items-center mt-10">
+        <div className="flex justify-between items-center mt-10">
+          <h1 className=" font-bold text-[28px]">Doctors by specialty</h1>
           <input
             type="text"
             value={searchQuery}

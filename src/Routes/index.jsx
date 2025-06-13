@@ -21,7 +21,7 @@ function Index() {
           <Route path="/listDoc" element={<ListDoc />} />
           <Route path="/:id" element={<DocDetail />} />
           <Route path="/listClinic" element={<ListClinic />} />
-          <Route path="/:id" element={<DocDetail />} />
+          <Route path="/detail" element={<DocDetail />} />
           <Route path="clinics" element={<Clinics />} />
           <Route path="aiasistent" element={<AIAsistent />} />
           <Route path="aboutus" element={<AboutUs />} />

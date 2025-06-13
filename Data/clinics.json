@@ -14,7 +14,7 @@
       "sun": "Not specified"
     },
     "phone": "+998901234567",
-    "image": "/images/clinics/factum-kids.png"
+    "image": "./img/ClinicLogo.webp"
   },
   {
     "id": 2,
@@ -31,6 +31,6 @@
       "sun": "Closed"
     },
     "phone": "+998907654321",
-    "image": "/images/clinics/mediline.png"
+    "image": "./img/ClinicLogo.webp"
   }
 ]

@@ -1,9 +1,13 @@
 import React from "react";
 import { BiHeart, BiStar } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 function DocCard({ data }) {
   return (
-    <div className="bg-white border-[1px] border-blue-500 flex flex-row justify-start gap-10 mb-4 p-3 rounded-[10px]">
+    <Link
+      to={"/detail"}
+      className="bg-white border-[1px] border-blue-500 flex flex-row justify-start gap-10 mb-4 p-3 rounded-[10px]"
+    >
       <div className="w-fit relative">
         <div className="absolute  border-1 border-blue-500 bg-white p-2 rounded-full top-[-10px] right-[-10px]">
           <BiHeart color="red" className="h-6 w-6" />
@@ -32,9 +36,6 @@ function DocCard({ data }) {
           <p>Initial consultation-------{data.initialConsultation}</p>
           <p>Follow-up consultation----{data.followUpConsultation}</p>
         </div>
-        <button className="bg-blue-400 py-1 px-2 rounded-full text-white mt-4">
-          Read more
-        </button>
       </div>
       <div className="w-1/3">
         <div className="flex justify-start gap-2 items-center">
@@ -60,7 +61,7 @@ function DocCard({ data }) {
           </button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
