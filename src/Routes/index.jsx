@@ -15,16 +15,17 @@ function Index() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AppLayout />}>
-          <Route index element={<Navigate replace to="Home" />} />
-          <Route path="home" element={<Home />} />
-          <Route path="doctor" element={<Doctors />} />
-          <Route path="/listDoc" element={<ListDoc />} />
-          <Route path="/:id" element={<DocDetail />} />
-          <Route path="/listClinic" element={<ListClinic />} />
-          <Route path="/detail" element={<DocDetail />} />
-          <Route path="clinics" element={<Clinics />} />
-          <Route path="aiasistent" element={<AIAsistent />} />
-          <Route path="aboutus" element={<AboutUs />} />
+          <Route index element={<Navigate replace to="home" />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/doctor" element={<Doctors />} />
+
+          <Route path="/listDoc/:id" element={<ListDoc />} />
+          <Route path="/listClinic/:id" element={<ListClinic />} />
+          <Route path="/doctor/:id" element={<DocDetail />} />
+
+          <Route path="/clinics" element={<Clinics />} />
+          <Route path="/aiasistent" element={<AIAsistent />} />
+          <Route path="/aboutus" element={<AboutUs />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../../Components/Container";
-import { BsTelegram } from "react-icons/bs";
+import { BsPhone, BsTelegram } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { PiPlus } from "react-icons/pi";
-import { BiPlusCircle } from "react-icons/bi";
+import { BiMinus, BiMinusCircle, BiPlusCircle } from "react-icons/bi";
+import { useParams } from "react-router-dom";
+import request from "../../Components/config/Indes";
 
 const data = {
   id: 1,
@@ -72,10 +74,27 @@ const data = {
 
 function DocDetail() {
   const [openMenu, setOpenMenu] = useState(false);
-
+  const { id } = useParams();
   const handleMenu = () => {
     return setOpenMenu((prev) => !prev);
   };
+
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+    try {
+      let res = await request.get(`/doctors/doctor/${id}`);
+      setData(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  console.log(data);
 
   return (
     <Container>
@@ -84,7 +103,7 @@ function DocDetail() {
           <div className="max-w-[270px]">
             <div>
               <img
-                src={`${data.image}`}
+                src={`https://api.kasimovstudio.uz${data.photo}`}
                 alt=""
                 className="w-[270px] h-[350px] object-cover rounded-[20px] border-[10px] border-blue-300 shadow-md shadow-blue-400"
               />
@@ -92,33 +111,37 @@ function DocDetail() {
             <div className="w-full rounded-[20px] shadow-md shadow-blue-400 p-4 mt-4 border-1 border-blue-300 ">
               <h1 className="mb-2">Contact info:</h1>
               <div className="flex gap-2 mb-3">
-                <img src="./img/Clinic.svg" alt="" className="h-8 w-8" />
-                <h1 className="text-[14px] font-bold">{data.clinic}</h1>
+                <img src="/img/Clinic.svg" alt="" className="h-8 w-8" />
+                <h1 className="text-[14px] font-bold">{data?.clinic?.name}</h1>
               </div>
               <div className="flex gap-2 mb-3">
-                <img src="./img/Departure.svg" alt="" className="h-8 w-8" />
-                <h1 className="text-[12px] text-gray-600">{data.location}</h1>
+                <img src="/img/Departure.svg" alt="" className="h-8 w-8" />
+                <h1 className="text-[12px] text-gray-600">
+                  {data?.clinic?.address}
+                </h1>
               </div>
               <div className="flex gap-3 items-center mb-3">
-                <BsTelegram className="w-6 h-6" color="rgb(249,192,192)" />
-                <p className="text-[16px] text-gray-600">{data.phone}</p>
+                <BsPhone className="w-6 h-6" color="rgb(249,192,192)" />
+                <p className="text-[16px] text-gray-600">{data.phone_number}</p>
               </div>
               <div className="flex gap-3 items-center">
-                <MdEmail className="w-6 h-6" color="rgb(249,192,192)" />
-                <p className="text-[16px] text-gray-600">{data.Email}</p>
+                <BsTelegram className="w-6 h-6" color="rgb(249,192,192)" />
+                <p className="text-[16px] text-gray-600">{data.telegram_url}</p>
               </div>
             </div>
           </div>
           <div className="flex flex-col w-full">
             <div className="rounded-[20px] w-full p-5 border-1 border-blue-400 shadow-md shadow-blue-400">
               <h1 className="text-[23px] font-extrabold border-l-6 border-blue-500 pl-4">
-                {data.name}
+                {data.last_name}
+                {data.first_name}
+                {data.middle_name}
               </h1>
               <div className="ml-6 grid grid-cols-2 my-10 gap-5">
                 <div className="">
                   <div className="flex gap-2 items-center mb-2">
                     <img
-                      src="./img/svg/IdCard.svg"
+                      src="/img/svg/IdCard.svg"
                       alt=""
                       className="w-10 h-10"
                     />
@@ -131,7 +154,7 @@ function DocDetail() {
                 <div className="">
                   <div className="flex gap-2 items-center mb-2">
                     <img
-                      src="./img/svg/Calendar.svg"
+                      src="/img/svg/Calendar.svg"
                       alt=""
                       className="w-8 h-8 "
                     />
@@ -139,28 +162,38 @@ function DocDetail() {
                       Experience:
                     </h1>
                   </div>
-                  <p className="text-[16px] font-bold">-{data.experience}</p>
+                  <p className="text-[16px] font-bold">
+                    {data.experience_years} years
+                  </p>
                 </div>
                 <div className="">
                   <div className="flex gap-2 items-center mb-2">
-                    <img src="./img/money.svg" alt="" className="w-8 h-8 " />
+                    <img src="/img/money.svg" alt="" className="w-8 h-8 " />
                     <h1 className="font-semibold text-[18px] text-gray-600">
                       Initial consultation
                     </h1>
                   </div>
                   <p className="text-[16px] font-bold">
-                    {data.initialConsultation}
+                    {data.initial_consultation_price === 0 ? (
+                      <p>-free</p>
+                    ) : (
+                      <p>{data.initial_consultation_price} so'm</p>
+                    )}
                   </p>
                 </div>
                 <div className="">
                   <div className="flex gap-2 items-center mb-2">
-                    <img src="./img/money.svg" alt="" className="w-8 h-8 " />
+                    <img src="/img/money.svg" alt="" className="w-8 h-8 " />
                     <h1 className="mb-1 font-semibold text-[18px] text-gray-600">
                       Follow-up consultation
                     </h1>
                   </div>
                   <p className="text-[16px] font-bold">
-                    {data.followUpConsultation}
+                    {data.follow_up_consultation_price === 0 ? (
+                      <p>-free</p>
+                    ) : (
+                      <p>{data.follow_up_consultation_price} so'm</p>
+                    )}
                   </p>
                 </div>
               </div>
@@ -168,35 +201,18 @@ function DocDetail() {
             <div className="rounded-[20px] w-full p-5 border-1 border-blue-400 shadow-md shadow-blue-400 mt-4">
               <div className="flex justify-between items-center">
                 <h2 className="text-2xl font-semibold mb-2">
-                  {data.profile.title}
+                  About the Doctor
                 </h2>
                 <button onClick={() => handleMenu()}>
-                  <BiPlusCircle className="w-10 h-10" />
+                  {openMenu === false ? (
+                    <BiPlusCircle className="w-10 h-10" />
+                  ) : (
+                    <BiMinusCircle className="w-10 h-10" />
+                  )}
                 </button>
               </div>
               <div className={`${openMenu === true ? "mt-4" : "hidden"}`}>
-                <p className="text-lg font-bold">{data.profile.degree}</p>
-                <p className="mb-4 font-medium text-gray-700">
-                  {data.profile.position}
-                </p>
-                {data.profile.memberships.map((m, index) => (
-                  <p key={index} className="mb-2 text-gray-700">
-                    {m}
-                  </p>
-                ))}
-                <Section title="EDUCATION" items={data.profile.education} />
-                <Section
-                  title="WORK ACTIVITIES"
-                  items={data.profile.workActivities}
-                />
-                <Section
-                  title="REFRESHER COURSES"
-                  items={data.profile.refresherCourses}
-                />
-                <Section
-                  title="CERTIFICATES"
-                  items={data.profile.certificates}
-                />
+                <Section title="WORK ACTIVITIES" items={data.description} />
               </div>
             </div>
           </div>
@@ -214,10 +230,8 @@ const Section = ({ title, items }) => (
     <h3 className="text-md font-semibold uppercase tracking-wide text-blue-800 mb-2">
       {title}:
     </h3>
-    <ul className="list-disc pl-6 space-y-1 text-gray-700">
-      {items.map((item, index) => (
-        <li key={index}>{item}</li>
-      ))}
-    </ul>
+    <div className="list-disc pl-6 space-y-1 text-gray-700">
+      <p>{items}</p>
+    </div>
   </div>
 );

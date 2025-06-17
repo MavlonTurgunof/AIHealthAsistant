@@ -32,7 +32,7 @@ function Navbar() {
       <div className="flex justify-between pt-3 pb-3 items-end border-b border-gray-300">
         <div className="flex items-center justify-center">
           <img src="./img/Logo.png" alt="" className="h-20 w-20" />
-          <Link to="/">
+          <Link to="/Home">
             <h1 className="font-bold text-[20px] text-green-500">
               Doctor
               <span className="font-bold text-[20px] text-blue-500">
