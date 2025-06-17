@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import doctors from "../Data/doctors.json";
-import clinics from "../Data/clinics.json";
-import { analyzeSymptoms } from "../src/Utils/analyzeSymptoms";
+
 import { BiHeart, BiStar } from "react-icons/bi";
 import Container from "../src/Components/Container";
 import axios from "axios";
