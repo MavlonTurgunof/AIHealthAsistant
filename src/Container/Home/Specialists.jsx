@@ -1,12 +1,29 @@
 import React, { useRef } from "react";
 import Container from "../../Components/Container";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const specialists = [
-  { name: "Cardiologist", image: "./img/heart.png" },
-  { name: "Traumatologist", image: "./img/plaster.png" },
-  { name: "Pulmonologist", image: "./img/lungs.png" },
-  { name: "Dentist", image: "./img/tooth.png" },
+  {
+    name: "Cardiologist",
+    image: "./img/heart.png",
+    id: "2e01e6d4-ff1a-45d9-85dc-88b233578830",
+  },
+  {
+    name: "Traumatologist",
+    image: "./img/plaster.png",
+    id: "117128b5-5469-4091-940b-860551085e9b",
+  },
+  {
+    name: "Pulmonologist",
+    image: "./img/lungs.png",
+    id: "4e026749-6550-424f-a97c-aed4a53f1c51",
+  },
+  {
+    name: "Dentist",
+    image: "./img/tooth.png",
+    id: "0eb37c4a-f275-4381-bcc3-45657512f199",
+  },
 ];
 
 const length = specialists.length;
@@ -48,14 +65,22 @@ function SpecialistsCarousel() {
                 : "flex gap-4 p-10 overflow-x-auto no-scrollbar scroll-smooth"
             }`}
           >
-            {specialists.map((item, idx) => (
+            {specialists.map((item) => (
               <div
-                key={idx}
+                key={item.id}
                 className={`${
                   length < 5 ? "w-full" : "min-w-[250px] w-[250px]"
                 }  bg-gray-50 rounded-2xl shadow p-4 flex flex-col items-center justify-center shrink-0`}
               >
-                <h3 className="font-semibold mb-2 text-center">{item.name}</h3>
+                <Link
+                  to={`/listDoc/${item.id}?name=${encodeURIComponent(
+                    item.name
+                  )}`}
+                >
+                  <h3 className="font-semibold mb-2 text-center">
+                    {item.name}
+                  </h3>
+                </Link>
                 <img
                   src={item.image}
                   alt={item.name}

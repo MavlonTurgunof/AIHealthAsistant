@@ -66,7 +66,7 @@ function DocCard({ data }) {
 
         <p className="text-[12px]">Doctor's appointment time at the clinic</p>
         <div className="flex justify-start gap-2 items-center">
-          <img src="./img/Calendar.svg" alt="" className="7-6 w-7" />
+          <img src="/img/Calendar.svg" alt="" className="7-6 w-7" />
           <h1 className="text-[14px]">
             {data.clinic.working_days},{data.clinic.working_hours}
           </h1>

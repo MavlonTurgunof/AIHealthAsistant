@@ -26,6 +26,11 @@ function Speciality() {
       <div>
         <div className="flex justify-between items-center mt-10">
           <h1 className="font-bold text-[28px]">Doctors by specialty</h1>
+          <input
+            type="text"
+            className="border-1 px-10 py-2 rounded-full mr-2 border-blue-600"
+            placeholder="Search specialty..."
+          />
         </div>
 
         {docSpeciality?.length === 0 ? (

@@ -10,7 +10,7 @@ function Footer() {
           {/* Logo & Contact Info */}
           <div className="space-y-2">
             <div className="flex items-center justify-start">
-              <img src="./img/Logo.png" alt="" className="h-10 w-10" />
+              <img src="/img/Logo.png" alt="" className="h-10 w-10" />
               <Link to="/">
                 <h1 className="font-bold text-[15px] text-green-500">
                   Doctor

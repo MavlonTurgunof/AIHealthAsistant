@@ -13,12 +13,6 @@ function ClinicCard({ data }) {
           alt="doctor"
           className="h-30 w-30  object-contain"
         />
-        <div className="flex gap-2 items-center mt-4">
-          <h1 className=" font-semibold text-[14px] text-green-500">
-            Rating: {data.rating}
-          </h1>
-          <BiStar color="red" className="h-5 w-5" />
-        </div>
       </div>
       <div className="w-1/3  ">
         <h1 className="font-bold text-[18px]">{data.name}</h1>
@@ -31,22 +25,17 @@ function ClinicCard({ data }) {
       </div>
       <div className="w-1/3">
         <div className="flex justify-start gap-2 items-center mb-2">
-          <img src="./img/Departure.svg" alt="" className="h-8 w-8" />
+          <img src="/img/Departure.svg" alt="" className="h-8 w-8" />
           <h1 className="text-[14px]">{data.address}</h1>
         </div>
 
         <p className="text-[12px]">Doctor's appointment time at the clinic</p>
         <div className="flex justify-start gap-2 items-center">
-          <img src="./img/Calendar.svg" alt="" className="7-6 w-7" />
+          <img src="/img/Calendar.svg" alt="" className="7-6 w-7" />
           <div className="text-sm text-gray-700">
-            {Object.entries(data.workingHours).map(([day, time]) => (
-              <div key={day}>
-                <strong className="capitalize">
-                  {day.replace("-", " - ")}
-                </strong>
-                : {time}
-              </div>
-            ))}
+            <h1 className="text-[14px]">
+              {data.working_days},{data.working_hours}
+            </h1>
           </div>
         </div>
         <div className="flex gap-10 mt-2">
